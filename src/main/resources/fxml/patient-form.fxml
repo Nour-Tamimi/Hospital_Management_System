@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.hospital_management_system.controller.PatientFormController"
+      spacing="14"
+      prefWidth="520"
+      style="-fx-padding: 24;">
+
+    <Label text="Patient Information"
+           style="-fx-font-size: 22px;" />
+
+    <GridPane hgap="12" vgap="12">
+        <Label text="First name *" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="firstNameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Last name *" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="lastNameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Date of birth *" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="dateOfBirthPicker" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Gender *" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="genderComboBox" promptText="Choose gender"
+                  GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Phone" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="phoneField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+        <Label text="Email" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <TextField fx:id="emailField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+        <Label text="Address" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <TextField fx:id="addressField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+        <Label text="Blood type" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="bloodTypeComboBox" promptText="Choose blood type"
+                  GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10">
+        <Button text="Save" onAction="#handleSave"/>
+        <Button text="Cancel" onAction="#handleCancel"/>
+    </HBox>
+</VBox>
