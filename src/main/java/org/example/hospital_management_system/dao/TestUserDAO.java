@@ -7,13 +7,14 @@ public class TestUserDAO {
         UserDAO u = new UserDAO();
 
         try{
-            User user =u.findByUsername("unknown");
+            User user =u.findByUsername("doctor1");
 
             if(user != null){
                 System.out.println("User Found");
                 System.out.println("Name: " + user.getFullName());
                 System.out.println("Role: " + user.getRole());
                 System.out.println("Active: " + user.isActive());
+                System.out.println("Doctor ID: " + user.getDoctorId());
 
             }else{
                 System.out.println("User not found");

@@ -34,7 +34,8 @@ public class UserDAO {
                                     rs.getString("Role").toUpperCase()
                             ),
                             rs.getBoolean("IsActive"),
-                            rs.getTimestamp("CreatedAt").toLocalDateTime()
+                            rs.getTimestamp("CreatedAt").toLocalDateTime(),
+                            rs.getObject("DoctorID", Integer.class)
                     );
 
                     return user;

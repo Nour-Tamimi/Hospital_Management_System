@@ -10,8 +10,9 @@ public class User {
     private Role role;
     private boolean active;
     private LocalDateTime createdAt;
+    private Integer doctorId;
 
-    public User(int userId, String username, String passwordHash, String fullName, Role role, boolean active, LocalDateTime createdAt) {
+    public User(int userId, String username, String passwordHash, String fullName, Role role, boolean active, LocalDateTime createdAt, Integer doctorId) {
         this.userId = userId;
         this.username = username;
         this.passwordHash = passwordHash;
@@ -19,6 +20,7 @@ public class User {
         this.role = role;
         this.active = active;
         this.createdAt = createdAt;
+        this.doctorId=doctorId;
     }
 
     public int getUserId() {
@@ -63,6 +65,9 @@ public class User {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+    public Integer getDoctorId() {
+        return doctorId;
     }
 
 
