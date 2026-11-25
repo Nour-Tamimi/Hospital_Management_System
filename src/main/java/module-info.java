@@ -7,6 +7,7 @@ module org.example.hospital_management_system {
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
     requires java.management;
+    requires jbcrypt;
 
     opens org.example.hospital_management_system to javafx.fxml;
     exports org.example.hospital_management_system;
