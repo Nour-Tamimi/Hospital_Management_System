@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.hospital_management_system.controller.PatientController"
+            prefWidth="1000"
+            prefHeight="650">
+
+    <top>
+        <VBox spacing="12" style="-fx-padding: 20;">
+            <Label text="Patients" style="-fx-font-size: 24px;" />
+
+            <HBox spacing="10">
+                <TextField fx:id="searchField"
+                           promptText="Search by patient ID or name"
+                           HBox.hgrow="ALWAYS" />
+                <Button text="Search" onAction="#handleSearch" />
+                <Button text="Show All" onAction="#loadPatients" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="patientTable">
+            <columns>
+                <TableColumn fx:id="patientIdColumn"
+                             text="Patient ID" prefWidth="90" />
+                <TableColumn fx:id="firstNameColumn"
+                             text="First Name" prefWidth="130" />
+                <TableColumn fx:id="lastNameColumn"
+                             text="Last Name" prefWidth="130" />
+                <TableColumn fx:id="dateOfBirthColumn"
+                             text="Date of Birth" prefWidth="120" />
+                <TableColumn fx:id="genderColumn"
+                             text="Gender" prefWidth="90" />
+                <TableColumn fx:id="phoneColumn"
+                             text="Phone" prefWidth="130" />
+                <TableColumn fx:id="emailColumn"
+                             text="Email" prefWidth="180" />
+                <TableColumn fx:id="bloodTypeColumn"
+                             text="Blood Type" prefWidth="100" />
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" style="-fx-padding: 20;">
+            <Button text="Add Patient" onAction="#handleAddPatient" />
+            <Button text="Edit Selected" onAction="#handleEditPatient" />
+            <Button text="Delete Selected" onAction="#handleDeletePatient" />
+            <Button text="Appointments" onAction="#handleOpenAppointments" />
+        </HBox>
+    </bottom>
+
+</BorderPane>

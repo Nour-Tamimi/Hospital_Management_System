@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="org.example.hospital_management_system.controller.LoginController"
+           prefWidth="1000" prefHeight="700">
+
+    <VBox spacing="14" maxWidth="340"
+          style="-fx-padding: 30; -fx-alignment: center;">
+        <Label text="Hospital Management System"
+               style="-fx-font-size: 24px;"/>
+        <TextField fx:id="usernameField" promptText="Username"/>
+        <PasswordField fx:id="passwordField"
+                       promptText="Password"
+                       onAction="#handleLogin"/>
+        <Button text="Log In"
+                onAction="#handleLogin"
+                defaultButton="true"
+                maxWidth="Infinity"/>
+    </VBox>
+</StackPane>
