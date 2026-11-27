@@ -50,6 +50,7 @@
             <Button text="Add Patient" onAction="#handleAddPatient" />
             <Button text="Edit Selected" onAction="#handleEditPatient" />
             <Button text="Delete Selected" onAction="#handleDeletePatient" />
+            <Button text="Appointments" onAction="#handleOpenAppointments" />
         </HBox>
     </bottom>
 

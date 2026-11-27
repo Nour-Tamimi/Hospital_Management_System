@@ -17,5 +17,5 @@ module org.example.hospital_management_system {
     exports org.example.hospital_management_system.service;
     exports org.example.hospital_management_system.util;
     exports org.example.hospital_management_system.config;
-}
+
 }

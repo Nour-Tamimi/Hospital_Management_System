@@ -1,24 +1,21 @@
-
 package org.example.hospital_management_system;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HospitalApplication extends Application {
 
     @Override
-    public void start(Stage stage) {
-
-        Label label = new Label("Hospital Management System");
-
-        StackPane root = new StackPane(label);
-        Scene scene = new Scene(root, 1000, 700);
+    public void start(Stage stage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/fxml/login.fxml"));
 
         stage.setTitle("Hospital Management System");
-        stage.setScene(scene);
+        stage.setScene(new Scene(loader.load(), 1000, 700));
         stage.show();
     }
 

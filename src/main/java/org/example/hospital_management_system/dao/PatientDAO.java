@@ -136,4 +136,67 @@ public class PatientDAO {
         patient.setPatientId(result.getInt("PatientID"));
         return patient;
     }
+
+    public List<Patient> getPatientsForDoctor(int doctorId)
+            throws SQLException {
+        String sql = """
+            SELECT DISTINCT p.*
+            FROM Patient p
+            JOIN Appointment a ON a.PatientID = p.PatientID
+            WHERE a.DoctorID = ?
+            ORDER BY p.PatientID
+            """;
+
+        List<Patient> patients = new ArrayList<>();
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setInt(1, doctorId);
+
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next()) {
+                    patients.add(readPatient(result));
+                }
+            }
+        }
+
+        return patients;
+    }
+
+    public List<Patient> searchPatientsForDoctor(String searchText, int doctorId)
+            throws SQLException {
+        String sql = """
+            SELECT DISTINCT p.*
+            FROM Patient p
+            JOIN Appointment a ON a.PatientID = p.PatientID
+            WHERE a.DoctorID = ?
+              AND (
+                  CAST(p.PatientID AS CHAR) LIKE ?
+                  OR p.FirstName LIKE ?
+                  OR p.LastName LIKE ?
+              )
+            ORDER BY p.PatientID
+            """;
+
+        List<Patient> patients = new ArrayList<>();
+        String search = "%" + searchText.trim() + "%";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setInt(1, doctorId);
+            statement.setString(2, search);
+            statement.setString(3, search);
+            statement.setString(4, search);
+
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next()) {
+                    patients.add(readPatient(result));
+                }
+            }
+        }
+
+        return patients;
+    }
 }

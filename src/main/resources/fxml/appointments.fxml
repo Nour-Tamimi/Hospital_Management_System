@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.hospital_management_system.controller.AppointmentController"
+            prefWidth="1000" prefHeight="700">
+
+    <top>
+        <VBox spacing="10" style="-fx-padding: 16;">
+            <HBox spacing="10">
+                <Label text="Appointments"
+                       style="-fx-font-size: 24px;"
+                       HBox.hgrow="ALWAYS"/>
+                <Button text="Patients" onAction="#handleBackToPatients"/>
+            </HBox>
+
+            <HBox spacing="8">
+                <TextField fx:id="patientFilterField"
+                           promptText="Patient ID"/>
+                <TextField fx:id="doctorFilterField"
+                           promptText="Doctor ID"/>
+                <DatePicker fx:id="dateFilterPicker"
+                            promptText="Appointment date"/>
+                <ComboBox fx:id="statusFilterComboBox"
+                          prefWidth="150"/>
+                <Button text="Search" onAction="#handleSearch"/>
+                <Button text="Show All" onAction="#loadAppointments"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="appointmentTable">
+            <columns>
+                <TableColumn fx:id="appointmentIdColumn"
+                             text="Appointment ID" prefWidth="120"/>
+                <TableColumn fx:id="patientIdColumn"
+                             text="Patient ID" prefWidth="100"/>
+                <TableColumn fx:id="doctorIdColumn"
+                             text="Doctor ID" prefWidth="100"/>
+                <TableColumn fx:id="appointmentDateColumn"
+                             text="Date and Time" prefWidth="200"/>
+                <TableColumn fx:id="reasonColumn"
+                             text="Reason" prefWidth="250"/>
+                <TableColumn fx:id="statusColumn"
+                             text="Status" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <VBox spacing="10" style="-fx-padding: 16;">
+            <HBox spacing="8">
+                <TextField fx:id="patientIdField"
+                           promptText="Patient ID"/>
+                <TextField fx:id="doctorIdField"
+                           promptText="Doctor ID"/>
+                <DatePicker fx:id="appointmentDatePicker"/>
+                <TextField fx:id="timeField"
+                           promptText="Time, e.g. 14:30"/>
+            </HBox>
+
+            <HBox spacing="8">
+                <TextField fx:id="reasonField"
+                           promptText="Reason"
+                           HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="appointmentStatusComboBox"
+                          prefWidth="150"/>
+            </HBox>
+
+            <HBox spacing="8">
+                <Button fx:id="saveButton"
+                        text="Add / Save Changes"
+                        onAction="#handleSave"/>
+                <Button fx:id="deleteButton"
+                        text="Delete Selected"
+                        onAction="#handleDelete"/>
+                <Button text="Update Status"
+                        onAction="#handleUpdateStatus"/>
+                <Button text="Clear Form"
+                        onAction="#handleClear"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
