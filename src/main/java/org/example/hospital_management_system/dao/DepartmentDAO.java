@@ -1,6 +1,6 @@
 package org.example.hospital_management_system.dao;
 
-import org.example.hospital_management_system.Department;
+import org.example.hospital_management_system.model.Department;
 import org.example.hospital_management_system.config.DatabaseConnection;
 
 import java.sql.Connection;
