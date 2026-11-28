@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.hospital_management_system.controller.DashboardController"
+            prefWidth="1000"
+            prefHeight="700">
+
+    <top>
+        <HBox spacing="20"
+              alignment="CENTER_LEFT"
+              style="-fx-padding: 20; -fx-background-color: #ffffff;">
+
+            <Label text="Hospital Management System"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+            <Label fx:id="welcomeLabel"
+                   text="Welcome!"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="12"
+              prefWidth="220"
+              style="-fx-padding: 20; -fx-background-color: #172b4d;">
+
+            <Button fx:id="dashboardButton"
+                    text="Dashboard"
+                    onAction="#showDashboard"
+                    maxWidth="Infinity"/>
+
+            <Button fx:id="patientsButton"
+                    text="Patients"
+                    onAction="#showPatients"
+                    maxWidth="Infinity"/>
+            <Button fx:id="appointmentsButton"
+                    text="Appointments"
+                    onAction="#showAppointments"
+                    maxWidth="Infinity"/>
+
+            <Button fx:id="doctorsButton"
+                    text="Doctors"
+                    onAction="#showDoctors"
+                    maxWidth="Infinity"/>
+            <Button fx:id="departmentsButton"
+                    text="Departments"
+                    onAction="#showDepartments"
+                    maxWidth="Infinity"/>
+
+            <Button fx:id="medicalRecordsButton"
+                    text="Medical Records"
+                    onAction="#showMedicalRecords"
+                    maxWidth="Infinity"/>
+            <Button fx:id="usersButton"
+                    text="Manage Users"
+                    onAction="#showUsers"
+                    maxWidth="Infinity"/>
+
+            <Button fx:id="logoutButton"
+                    text="Logout"
+                    onAction="#handleLogout"
+                    maxWidth="Infinity"/>
+
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea"
+                   style="-fx-background-color: #f2f5fa;">
+
+            <Label text="Welcome to the Hospital Management System"/>
+
+        </StackPane>
+    </center>
+
+</BorderPane>

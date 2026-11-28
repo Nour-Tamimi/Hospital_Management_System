@@ -2,8 +2,10 @@ package org.example.hospital_management_system.util;
 
 public class TestPasswordUtil {
     public static void main(String[] args){
-        String password ="Test12345!";
+        String password ="TestAdmin123!";
         String hash = PasswordUtil.hashPassword(password);
+
+
 
         System.out.println("Hash"+ hash);
 

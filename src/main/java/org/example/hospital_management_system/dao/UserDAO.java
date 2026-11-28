@@ -6,6 +6,8 @@ import org.example.hospital_management_system.model.Role;
 import org.example.hospital_management_system.model.User;
 
 import java.sql.Connection;
+import java.util.List;
+import java.util.ArrayList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -45,4 +47,38 @@ public class UserDAO {
 
         return null;
     }
+
+
+    public List<User> findAll() throws SQLException {
+
+        String sql = "SELECT * FROM Users ORDER BY UserID";
+
+        List<User> users = new ArrayList<>();
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+
+                User user = new User(
+                        rs.getInt("UserID"),
+                        rs.getString("Username"),
+                        rs.getString("PasswordHash"),
+                        rs.getString("FullName"),
+                        Role.valueOf(
+                                rs.getString("Role").toUpperCase()
+                        ),
+                        rs.getBoolean("IsActive"),
+                        rs.getTimestamp("CreatedAt").toLocalDateTime(),
+                        rs.getObject("DoctorID", Integer.class)
+                );
+
+                users.add(user);
+            }
+        }
+
+        return users;
+    }
+
 }
